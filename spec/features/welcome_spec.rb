@@ -13,74 +13,74 @@ require 'spec_helper'
 #  \ (  \_Y_/\
 #   ""\ \___//
 #      `w   "
-describe "The Home Page" do
+# describe "The Home Page" do
 
-  before(:each) do
-    visit '/'
-  end
+#   before(:each) do
+#     visit '/'
+#   end
 
-  it "says 'hello and welcome'" do
-    expect(page).to have_content("hello and welcome")
-  end
+#   it "says 'hello and welcome'" do
+#     expect(page).to have_content("hello and welcome")
+#   end
 
-  it "has the title 'Week 1011'" do
-    expect(page).to have_title "Week 1011"
-  end
+#   it "has the title 'Week 1011'" do
+#     expect(page).to have_title "Week 1011"
+#   end
 
-  it "has a link to /javascript" do
-    find_link('JavaScript').click
-    expect(page).to have_content('Comp-Sci')
-    expect(current_path).to eq('/javascript')
-  end
+#   it "has a link to /javascript" do
+#     find_link('JavaScript').click
+#     expect(page).to have_content('Comp-Sci')
+#     expect(current_path).to eq('/javascript')
+#   end
 
-  it "has a link to /quizzes" do
-    find_link('Quizzes').click
-    expect(current_path).to eq('/quizzes')
-  end
+#   it "has a link to /quizzes" do
+#     find_link('Quizzes').click
+#     expect(current_path).to eq('/quizzes')
+#   end
 
-end
+# end
 
-describe 'A page called JavaScript' do
+# describe 'A page called JavaScript' do
 
-  before(:each) do
-    visit '/javascript'
-  end
+#   before(:each) do
+#     visit '/javascript'
+#   end
 
-  it "Has an h1 with the text 'Comp-Sci'" do
-    h1 = page.find('h1')
-    text = 'Comp-Sci'
-    expect(h1.has_content?(text)).to be true
-  end
+#   it "Has an h1 with the text 'Comp-Sci'" do
+#     h1 = page.find('h1')
+#     text = 'Comp-Sci'
+#     expect(h1.has_content?(text)).to be true
+#   end
 
-  it "has a button labeled 'Click Me!'" do
-    button = page.find('button')
-    label = 'Click Me!'
-    expect(button.has_content?(label)).to be true
-  end
+#   it "has a button labeled 'Click Me!'" do
+#     button = page.find('button')
+#     label = 'Click Me!'
+#     expect(button.has_content?(label)).to be true
+#   end
 
-  describe "clicking the button with JavaScript enabled", :js => true do
+#   describe "clicking the button with JavaScript enabled", :js => true do
 
-    before(:each) do
-      click_button('Click Me!');
-    end
+#     before(:each) do
+#       click_button('Click Me!');
+#     end
 
-    it "changes the h1's text to Comp-Sigh using jQuery" do
-      expect(page).to have_content('Comp-Sigh')
-      expect(page).to have_no_content('Comp-Sci')
-    end
+#     it "changes the h1's text to Comp-Sigh using jQuery" do
+#       expect(page).to have_content('Comp-Sigh')
+#       expect(page).to have_no_content('Comp-Sci')
+#     end
 
-    it "changes the body's background to pink", :js => true do
-      expect(page).to have_css('body.pink')
-    end
+#     it "changes the body's background to pink", :js => true do
+#       expect(page).to have_css('body.pink')
+#     end
 
-    it "disables the button", :js => true do
-      button = page.find('button')
-      expect(button.disabled?).to be true
-    end
+#     it "disables the button", :js => true do
+#       button = page.find('button')
+#       expect(button.disabled?).to be true
+#     end
 
-  end
+#   end
 
-end
+# end
 
 describe "a page called quizzes" do
 
@@ -89,7 +89,7 @@ describe "a page called quizzes" do
   end
 
   it "has an input field" do
-    expect(page.has_field?('val')).to be true
+    expect(page.has_field?('num-list')).to be true
   end
 
   it "has a button labelled 'Calc'" do
@@ -98,6 +98,23 @@ describe "a page called quizzes" do
 
   it "doesn't have a form tag" do
     expect(page.has_css?('form')).to be false
+  end
+
+  describe "the calc button on the quizzes page", :js => true do
+
+    it "turns the background green if user enters an ascending list" do
+      save_and_open_page
+      fill_in('num-list', :with => '1, 14, 95, 101');
+      click_button('Calc');
+      expect(page).to have_css('body.green');
+    end
+
+    it "turns the background red if user doesn't enter an ascending list" do
+      fill_in('num-list', :with => '1, 95, 14, 101');
+      click_button('Calc');
+      expect(page).to have_css('body.red');
+    end
+
   end
 
 end
