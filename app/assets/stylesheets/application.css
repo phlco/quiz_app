@@ -9,3 +9,16 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  */
+
+
+.pink {
+  background-color: pink;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}

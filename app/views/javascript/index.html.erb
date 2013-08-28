@@ -1,0 +1,19 @@
+<script>
+  var fancy = {
+      changeTitle: function () {
+          $('h1').html("Comp-Sigh");
+          fancy.changeBody();
+          $('#js-button').attr("disabled", "disabled")
+      },
+      changeBody: function () {
+          $('body').attr("class", "pink");
+      }
+  };
+
+  $(document).ready(function() {
+      $('body').on('click', '#js-button', fancy.changeTitle);
+  });
+</script>
+
+<h1>Comp-Sci</h1>
+<button id="js-button">Click Me!</button>
