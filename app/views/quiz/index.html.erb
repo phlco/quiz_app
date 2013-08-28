@@ -1,0 +1,36 @@
+<script>
+    var check_increasing = function() {
+      var numbers = $('input').val(),
+          myArray = numbers.split(","),
+          i,
+          arrayLength = myArray.length,
+          sortedArray,
+          j,
+          matcher;
+
+      for (i = 0; i < arrayLength; i++) {
+        myArray[i] = parseInt(myArray[i]);
+      }
+
+      console.log(myArray);
+
+      sortedArray = myArray.sort();
+      for (j = 0; j < arrayLength; j++) {
+        if (myArray[j] !== sortedArray[j]) {
+          return matcher = false;
+        }
+      }
+      if (matcher === false) {
+        $('body').attr("class", "red");
+      } else if (matcher === undefined) {
+        $('body').attr("class", "green");
+      }
+    }
+
+    $(document).ready(function() {
+      $('body').on('click', '#calc-button', check_increasing);
+    });
+</script>
+
+<input/>
+<button id="calc-button">calc</button>
