@@ -5,6 +5,11 @@ class WelcomeController < ApplicationController
   end
 
   def javascript
+
+  end
+
+  def quizzes
+
   end
 
 end

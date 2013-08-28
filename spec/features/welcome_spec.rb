@@ -33,6 +33,12 @@ describe "The Home Page" do
     expect(current_path).to eq('/javascript')
   end
 
+  it "has a link to /quizzes" do
+    find_link('Quizzes').click
+    expect(page).to have_content('Quizzes')
+    expect(current_path).to eq('/quizzes')
+  end
+
 end
 
 describe 'A page called JavaScript' do
@@ -57,6 +63,7 @@ end
 describe "clicking the button with JavaScript enabled", :js => true do
 
   before(:each) do
+    visit '/javascript'
     click_button('Click Me!');
   end
 
@@ -76,11 +83,20 @@ describe "clicking the button with JavaScript enabled", :js => true do
 
 end
 
-
 # MORE?!
+describe "A page called Quizzes" do
 
-# There should be a link on the home page called "quizzes"
-# When a user clicks on "quizzes" they should be re-directed to "/quizzes"
+  before(:each) do
+    visit '/quizzes'
+  end
+
+  it "Has an h1 with the text 'Quizzes'" do
+    h1 = page.find('h1')
+    text = 'Quizzes'
+    expect(h1.has_content?(text)).to be true
+  end
+
+end
 # "/quizzes" should have an input field and a button labeled 'calc'
 # "/quizzes" should not have a form tag
 # We should be able to fill in a series of numbers separated by commas into the input field and click "calc"
