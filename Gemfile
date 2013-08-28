@@ -7,7 +7,7 @@ gem 'sqlite3'
 group :test do
   gem 'capybara'
   gem 'rspec-rails'
-  gem 'capybara-webkit'
+  gem "capybara-webkit", "~> 1.0.0"
   gem 'database_cleaner'
   gem 'launchy'
 end
