@@ -11,7 +11,7 @@ $(function() {
   });
 
   $('#awesome-button').on('click', function(){
-
+    check_increasing();
 
   });
 
@@ -20,8 +20,14 @@ $(function() {
 
 cool = {
 
-   getNumbers: function() {
-    $('#maths').val();
+   check_increasing: function() {
+    var array = [];
+    var numb_string = $('#maths').val();
+    var a = numb_string.split(',');
+     for (var i = 0; i < a.length; i++) {
+      array.push(parseInt(a[i]));
+     }
+
    }
 
 };
