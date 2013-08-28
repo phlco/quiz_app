@@ -12,10 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+
 var counter = 0;
 Array.prototype.clone = function() {
   return this.slice(0);
 };
+
 $(function(){
   $('#click-me').click(function(){
     console.log("clicked");
@@ -31,22 +33,29 @@ $(function(){
     for(var i=0; i < numbers_array.length; i++) {
       numbers_array[i] = +numbers_array[i];
     }
-    var j = 0;
-    var clone = numbers_array.slice(0);
-    var sorted = numbers_array.sort();
-    for(j = 0; j < numbers_array.length; j ++ ) {
-      if (clone[j] === sorted[j]) {
-        counter += 1;
+    for(var j= 0; j < numbers_array.length; j++){
+      if( numbers_array[j] < numbers_array[j-1]) {
+        $('body').css("background-color", "red");
+        return;
       }
     }
-    if(counter === numbers_array.length) {
-      $('body').css("background-color", "green");
-    } else {
-      $('body').css("background-color", "red");
-    }
-    $('#input-value').val("");
-    counter = 0;
+    $('body').css("background-color", "green");
   });
-
+  //   var j = 0;
+  //   var clone = numbers_array.slice(0);
+  //   var sorted = numbers_array.sort();
+  //   for(j = 0; j < numbers_array.length; j ++ ) {
+  //     if (clone[j] === sorted[j]) {
+  //       counter += 1;
+  //     }
+  //   }
+  //   if(counter === numbers_array.length) {
+  //     $('body').css("background-color", "green");
+  //   } else {
+  //     $('body').css("background-color", "red");
+  //   }
+  //   $('#input-value').val("");
+  //   counter = 0;
+  // });
 
 });
