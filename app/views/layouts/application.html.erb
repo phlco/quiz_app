@@ -10,5 +10,15 @@
 
 <%= yield %>
 
+<script>
+$("button").click(function(){
+  $("body").removeClass("blue").addClass("pink");
+  $("h1").text("Comp-Sigh");
+  $('Button').attr("disabled", true);
+});
+
+
+</script>
+
 </body>
 </html>
