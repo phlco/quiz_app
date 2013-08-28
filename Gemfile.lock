@@ -133,7 +133,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  capybara-webkit
+  capybara-webkit (~> 1.0.0)
   coffee-rails (~> 3.2.1)
   database_cleaner
   jquery-rails
