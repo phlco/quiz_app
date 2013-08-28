@@ -28,9 +28,11 @@ function checkIncreasing() {
      }
     }
     if (isSorted) {
+      $('body').removeClass('red');
       $('body').addClass('green');
       $('body').css('background-color', 'green');
     } else {
+      $('body').removeClass('green');
       $('body').addClass('red');
       $('body').css('background-color', 'red');
     }
