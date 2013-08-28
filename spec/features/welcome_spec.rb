@@ -27,19 +27,19 @@ describe "The Home Page" do
     expect(page).to have_title "Week 1011"
   end
 
-  # it "has a link to /javascript" do
-  #   find_link('JavaScript').click
-  #   expect(page).to have_content('Comp-Sci')
-  #   expect(current_path).to eq('/javascript')
-  # end
+  it "has a link to /javascript" do
+    find_link('JavaScript').click
+    expect(page).to have_content('Comp-Sci')
+    expect(current_path).to eq('/javascript')
+  end
 
 end
 
 describe 'A page called JavaScript' do
 
-  # before(:each) do
-  #   visit '/javascript'
-  # end
+  before(:each) do
+    visit '/javascript'
+  end
 
   # it "Has an h1 with the text 'Comp-Sci'" do
   #   h1 = page.find('h1')
