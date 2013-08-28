@@ -41,41 +41,41 @@ describe 'A page called JavaScript' do
     visit '/javascript'
   end
 
-  # it "Has an h1 with the text 'Comp-Sci'" do
-  #   h1 = page.find('h1')
-  #   text = 'Comp-Sci'
-  #   expect(h1.has_content?(text)).to be true
-  # end
+  it "Has an h1 with the text 'Comp-Sci'" do
+    h1 = page.find('h1')
+    text = 'Comp-Sci'
+    expect(h1.has_content?(text)).to be true
+  end
 
-  # it "has a button labeled 'Click Me!'" do
-  #   button = page.find('button')
-  #   label = 'Click Me!'
-  #   expect(button.has_content?(label)).to be true
-  # end
+  it "has a button labeled 'Click Me!'" do
+    button = page.find('button')
+    label = 'Click Me!'
+    expect(button.has_content?(label)).to be true
+  end
+end
 
-  # describe "clicking the button with JavaScript enabled", :js => true do
+describe "clicking the button with JavaScript enabled", :js => true do
 
-  #   before(:each) do
-  #     click_button('Click Me!');
-  #   end
+  before(:each) do
+    click_button('Click Me!');
+  end
 
-  #   it "changes the h1's text to Comp-Sigh using jQuery" do
-  #     expect(page).to have_content('Comp-Sigh')
-  #     expect(page).to have_no_content('Comp-Sci')
-  #   end
+  it "changes the h1's text to Comp-Sigh using jQuery" do
+    expect(page).to have_content('Comp-Sigh')
+    expect(page).to have_no_content('Comp-Sci')
+  end
 
-  #   it "changes the body's background to pink", :js => true do
-  #     expect(page).to have_css('body.pink')
-  #   end
+  it "changes the body's background to pink", :js => true do
+    expect(page).to have_css('body.pink')
+  end
 
-  #   it "disables the button", :js => true do
-  #     button = page.find('button')
-  #     expect(button.disabled?).to be true
-  #   end
-
-  # end
+  it "disables the button", :js => true do
+    button = page.find('button')
+    expect(button.disabled?).to be true
+  end
 
 end
+
 
 # MORE?!
 

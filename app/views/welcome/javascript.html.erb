@@ -1,1 +1,12 @@
 <h1>Comp-Sci</h1>
+
+<%= button_tag 'Click Me!', id: "click_button", label: "Click Me!" %>
+
+<script>
+  var changeText = $('#click_button')
+  changeText.click(function () {
+    $('h1').text('Comp-Sigh');
+    $('body').css("background-color", "pink");
+    $(this).attr("disabled", true);
+  });
+</script>
