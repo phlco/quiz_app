@@ -1,0 +1,25 @@
+<input type="text" id="num-list">
+<input type="submit" value="Calc" id="calc-button">
+
+<script>
+
+$(function() {
+  $('#calc-button').click(checkIncreasing);
+});
+
+var checkIncreasing = function() {
+  var numString = $('#num-list').val();
+  nums = numString.split(',');
+  for(var i = 0; i < nums.length; i += 1) {
+    nums[i] = parseInt(nums[i]);
+  }
+  for(var j = 1; j < nums.length; j += 1) {
+    if(nums[j] < nums[j - 1]) {
+      $('body').addClass('red');
+      return;
+    }
+  }
+  $('body').addClass('green');
+};
+
+</script>

@@ -1,0 +1,13 @@
+<h1 id="my-heading">Comp-Sci</h1>
+
+<button id="click-me">Click Me!</button>
+
+<script>
+
+$('#click-me').click(function() {
+  $('#my-heading').text('Comp-Sigh');
+  $('body').addClass('pink');
+  $('#click-me').prop('disabled', true);
+});
+
+</script>
