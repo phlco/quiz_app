@@ -12,3 +12,27 @@
 //
 //= require jquery
 //= require jquery_ujs
+
+function check_increasing(numbers) {
+  var len = numbers.length - 1;
+  for (var i = 0; i < len; i++) {
+    if(numbers[i] > numbers[i+1]) {
+      $('body').css("background-color", "red");
+      return;
+    }
+  }
+  $('body').css("background-color", "green");
+}
+
+$(function() {
+  $('#my-button').click(function() {
+    $('h1').html('Comp-Sigh');
+    $('body').addClass('pink').css('background-color', 'pink');
+    $(this).prop("disabled",true);
+  });
+
+  $('#calc').click(function() {
+    var nums = ($('#my-input').val()).split(',');
+    check_increasing(nums);
+  });
+});
