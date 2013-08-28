@@ -82,6 +82,26 @@ describe 'A page called JavaScript' do
 
 end
 
+describe "a page called quizzes" do
+
+  before(:each) do
+    visit '/quizzes'
+  end
+
+  it "has an input field" do
+    expect(page.has_field?('val')).to be true
+  end
+
+  it "has a button labelled 'Calc'" do
+    expect(page.has_button?('Calc')).to be true
+  end
+
+  it "doesn't have a form tag" do
+    expect(page.has_css?('form')).to be false
+  end
+
+end
+
 # MORE?!
 
 # There should be a link on the home page called "quizzes"
