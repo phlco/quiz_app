@@ -19,9 +19,9 @@ describe "The Home Page" do
     visit '/'
   end
 
-  # it "says 'hello and welcome'" do
-  #   expect(page).to have_content("hello and welcome")
-  # end
+  it "says 'hello and welcome'" do
+    expect(page).to have_content("hello and welcome")
+  end
 
   # it "has the title 'Week 1011'" do
   #   expect(page).to have_title "Week 1011"
